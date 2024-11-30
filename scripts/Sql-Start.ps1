@@ -75,5 +75,6 @@ Write-Output "Creating $dbname from $justscript"
 docker exec -it $imageName //opt/mssql-tools18/bin/sqlcmd  -C -S '.' -U sa -P $SAPASS -i //db/$justscript
 
 $SQLCN="Server=127.0.0.1,${SQLPORT};Database=${dbname};User Id=sa;Password=${SAPASS};Encrypt=no;"
+setx BLITZSQL $SQLCN
 
 Write-Output "ConnectionString: ${SQLCN}"

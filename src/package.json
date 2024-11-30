@@ -1,0 +1,36 @@
+{
+  "name": "nodesqloptimist",
+  "version": "1.0.0",
+  "description": "A demo of optimistic SQL Locking in Node w. Knex",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlitzkriegSoftware/nodesqloptimist.git"
+  },
+  "keywords": [
+    "Node",
+    "Knex",
+    "SQL",
+    "Optimistic",
+    "Locking"
+  ],
+  "author": "Stuart Williams",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BlitzkriegSoftware/nodesqloptimist/issues"
+  },
+  "homepage": "https://github.com/BlitzkriegSoftware/nodesqloptimist#readme",
+  "dependencies": {
+    "knex": "^3.1.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.16.0",
+    "jest": "^29.7.0",
+    "jsdoc": "^4.0.4",
+    "prettier": "^3.4.1"
+  }
+}

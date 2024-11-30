@@ -2,10 +2,18 @@
 
 A demo of SQL Optimistic Locking with NodeJS and using the ORM [Knex](https://knexjs.org/)
 
-# To run
+# SQL Server in Docker
 
-1. Make sure docker is running
+> Make sure docker is running
 
-2. `cd Scripts/`
+## Start
 
-3. run ``
+1. `cd Scripts/`
+
+2. run `.\scripts\Sql-Start.ps1`
+
+## Stop
+
+1. run `.\scripts\Sql-Stop.ps1`
+
+# Demo
