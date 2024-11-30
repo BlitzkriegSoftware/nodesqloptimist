@@ -1,0 +1,3 @@
+{
+  "DSN": "Server=127.0.0.1,1433;Database=Northwind;User Id=sa;Password=blitz!2023stw-;Encrypt=no;"
+}
