@@ -47,9 +47,9 @@ if(! $da) {
 
 [int]$SQLPORT=1433
 [string]$dockerImage="mcr.microsoft.com/mssql/server:2022-latest"
-[string]$justScript = "instnwnd.sql"
+[string]$justScript = "optimist.sql"
 [string]$IMAGENAME="sql-docker"
-[string]$DBNAME="Northwind"
+[string]$DBNAME="optimist"
 [string]$SAPASS="blitz!2023stw-"
 
 # Dispose of any old running ones

@@ -30,3 +30,7 @@ A demo of SQL Optimistic Locking with NodeJS and using the ORM [Knex](https://kn
 1. The demo script must be run
 2. Your shell may need to be re-started to get the exported environment variables
 3. `jest` to run the demo, set breakpoints to debug
+
+# References
+
+- https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide?view=sql-server-ver16
