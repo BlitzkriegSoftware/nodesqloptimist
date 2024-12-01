@@ -34,3 +34,5 @@ A demo of SQL Optimistic Locking with NodeJS and using the ORM [Knex](https://kn
 # References
 
 - https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide?view=sql-server-ver16
+
+- https://devhints.io/knex
