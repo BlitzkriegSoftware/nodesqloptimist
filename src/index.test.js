@@ -84,6 +84,22 @@ describe('regular query', () => {
 
     await db.destroy();
   });
+
+  test('Insert', async () => {
+    const dbname = process.env.BLITZSQLNAME ?? '';
+    const password = process.env.BLITZSQLPASS ?? '';
+    const port = parseInt(process.env.BLITZSQLPORT, 10) ?? 0;
+
+    const db = BlitzDb.getDb(dbname, password, port);
+    expect(db != null).toBe(true);
+
+    const id = await db
+      .insert({ Name: 'Insert Eggs', Priority: 3 })
+      .into('Stuff');
+    console.log(id);
+
+    await db.destroy();
+  });
 });
 
 describe('Optimistic Locking', () => {});
