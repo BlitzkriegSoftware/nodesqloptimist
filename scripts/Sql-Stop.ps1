@@ -13,8 +13,7 @@
         Sucess or failure 
 #>
 
-[int]$SQLPORT=1433
-[string]$imageName="sql-docker"
+[string]$IMAGENAME="sql-docker"
 
-$null = (docker stop "${$imageName}") 2> $null
-$null = (docker rm "${$imageName}") 2> $null
+$null = (docker stop "${IMAGENAME}") 2> $null
+$null = (docker rm "${IMAGENAME}") 2> $null

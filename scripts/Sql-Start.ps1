@@ -46,35 +46,38 @@ if(! $da) {
 }
 
 [int]$SQLPORT=1433
-[string]$imageName="sql-docker"
+[string]$dockerImage="mcr.microsoft.com/mssql/server:2022-latest"
+[string]$justScript = "instnwnd.sql"
+[string]$IMAGENAME="sql-docker"
+[string]$DBNAME="Northwind"
 [string]$SAPASS="blitz!2023stw-"
-[string]$dbname="Northwind"
-[string]$justscript = "instnwnd.sql"
 
 # Dispose of any old running ones
-$null = (docker stop "${imageName}") 2> $null
-$null = (docker rm "${imageName}") 2> $null
+$null = (docker stop "${IMAGENAME}") 2> $null
+$null = (docker rm "${IMAGENAME}") 2> $null
 
 [string]$pwd = $(Get-Location).Path
 
 $dbPath = Join-Path -Path $pwd -ChildPath "db"
 
-$dockerImage="mcr.microsoft.com/mssql/server:2022-latest"
-
 docker pull $dockerImage
-docker run -d -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=${SAPASS}" -p "${SQLPORT}:${SQLPORT}" --volume "${dbPath}:/db" --workdir "/db" --name="${imageName}" --hostname="${imageName}" $dockerImage
+docker run -d -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=${SAPASS}" -p "${SQLPORT}:${SQLPORT}" --volume "${dbPath}:/db" --workdir "/db" --name="${IMAGENAME}" --hostname="${IMAGENAME}" $dockerImage
 
 Write-Output "Waiting for SQL to Start"
 
 Start-Sleep -Seconds 30
 
-docker exec -t $imageName cat /var/opt/mssql/log/errorlog
+docker exec -t $IMAGENAME cat /var/opt/mssql/log/errorlog
 
-Write-Output "Creating $dbname from $justscript"
+Write-Output "Creating $DBNAME from ${justScript}"
 
-docker exec -it $imageName //opt/mssql-tools18/bin/sqlcmd  -C -S '.' -U sa -P $SAPASS -i //db/$justscript
+docker exec -it $IMAGENAME //opt/mssql-tools18/bin/sqlcmd  -C -S '.' -U sa -P $SAPASS -i //db/$justScript
 
-$SQLCN="Server=127.0.0.1,${SQLPORT};Database=${dbname};User Id=sa;Password=${SAPASS};Encrypt=no;"
+$SQLCN="Server=127.0.0.1,${SQLPORT};Database=${DBNAME};User Id=sa;Password=${SAPASS};Encrypt=no;"
+
 setx BLITZSQL $SQLCN
+setx BLITZSQLPORT $SQLPORT
+setx BLITZSQLPASS $SAPASS
+setx BLITZSQLNAME $DBNAME
 
 Write-Output "ConnectionString: ${SQLCN}"
