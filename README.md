@@ -1,6 +1,6 @@
 # nodesqloptimist
 
-A demo of SQL Optimistic Locking with NodeJS and using the ORM [Knex](https://knexjs.org/)
+A demo of Microsoft SQL Server Optimistic Locking with NodeJS and using the ORM [Knex](https://knexjs.org/)
 
 # SQL Server in Docker
 
@@ -8,11 +8,9 @@ A demo of SQL Optimistic Locking with NodeJS and using the ORM [Knex](https://kn
 
 ## Start
 
-1. `cd Scripts/`
+1. run `.\scripts\Start-DockerSql.ps1`
 
-2. run `.\scripts\Sql-Start.ps1`
-
-3. This exports the following environment variables (you may need to reload the shell to have these seen)
+1. This exports the following environment variables (you may need to reload the shell to have these seen)
 
 | ENVVAR       | Type    | Use                    | Value                                                                                     |
 | :----------- | :------ | :--------------------- | :---------------------------------------------------------------------------------------- |
@@ -23,7 +21,7 @@ A demo of SQL Optimistic Locking with NodeJS and using the ORM [Knex](https://kn
 
 ## Stop
 
-1. run `.\scripts\Sql-Stop.ps1`
+1. run `.\scripts\Stop-DockerSql.ps1`
 
 # Demo
 
@@ -33,6 +31,10 @@ A demo of SQL Optimistic Locking with NodeJS and using the ORM [Knex](https://kn
 
 # References
 
-- https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide?view=sql-server-ver16
+- [Microsoft SQL Row Versioning and Locking](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide?view=sql-server-ver16)
 
-- https://devhints.io/knex
+- [Knex Documentation](https://devhints.io/knex)
+
+- [Node parallelism in action](https://pragmaticaweds.hashnode.dev/concurrency-and-parallelism-in-nodejs-boosting-performance#heading-understanding-concurrency-in-nodejs)
+
+- [Node Documentation Worker](https://nodejs.org/api/worker_threads.html#class-worker)
