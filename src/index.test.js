@@ -140,6 +140,11 @@ describe('Optimistic Locking', () => {
     const db = BlitzDb.getDb(dbname, password, port);
     expect(db != null).toBe(true);
 
+    // There must be at least 2 CPU cores for this to run
+    const numCores = require('os').cpus().length;
+    expect(numCores).toBeGreaterThan(1);
+    if (numCores >= 2) {
+    }
     await db.destroy();
   });
   test('Experiment 2', async () => {
@@ -149,6 +154,11 @@ describe('Optimistic Locking', () => {
 
     const db = BlitzDb.getDb(dbname, password, port);
     expect(db != null).toBe(true);
+    // There must be at least 2 CPU cores for this to run
+    const numCores = require('os').cpus().length;
+    expect(numCores).toBeGreaterThan(1);
+    if (numCores >= 2) {
+    }
 
     await db.destroy();
   });
